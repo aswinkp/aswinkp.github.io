@@ -1,8 +1,8 @@
 # Site settings
-title:       Aswin Kumar
+title:       4SW!N
 email:       kp.aswinkumar@gmail.com
 author:      Aswin Kumar
-description: "Personal blog of yet another programmer."
+description: "Tech/Personal blog by Aswin."
 baseurl:     ""
 url:         "http://4sw.in"
 date_format: "%b %-d, %Y"

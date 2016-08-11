@@ -4,17 +4,11 @@ title: About Me
 permalink: /about/
 tags: about
 ---
+I'm Aswin Kumar from Chennai, India. Polyglot Programmer. Code in Python (Django to be specific), Java, Rails, Meteor, Angular2, Cordova. Freelancer. Open Source enthusiast. Currently Full Stack Developer at RedBlackTree. 
 
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
+Started to sharpen my coding skills in my sophomore year, Began my career as a Software Developer in Citrisys Solutions as Software Developer in [ATG Framework](http://learnoracleatg.blogspot.in/2014/04/chapter-1-oracle-atg-story.html). Now I work at RedBlackTree as a FullStack Developer (Python). Being a individual freelancer or hobbyist programmer developed some serious projects, ranging from highly scalable websites with great SEOs and heavy micro-data scoring over 95% in Google Page insights tool to Hybrid Mobile Application, I consider myself as a reasonably experienced Web Developer.
 
-Checkout the [Github repository](https://github.com/johnotander/pixyll) to download it,
-request a feature, report a bug, or contribute. It's free, and open source
-([MIT](http://opensource.org/licenses/MIT)).
+View my Developer CV [HERE](https://stackoverflow.com/cv/aswinkumar).
 
-Thanks to the following:
+Hire me [HERE](/contact/)
 
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Type Scale](http://type-scale.com/)

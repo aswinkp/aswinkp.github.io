@@ -1,0 +1,15 @@
+---
+layout:     post
+title:      Hello World !!!
+date:       2016-08-10 11:21:29
+summary:    About this awesome blog.
+categories: jekyll pixyll
+---
+
+Yet another GEEK blog.
+
+This blog is mostly to keep track of the things I'm doing regularly. Usually I work / reasearch (obviously under serious deadlines), find a hack and get things done. It would be still more awesome to make things beautiful by documenting my work so that it might save the day for other programmers trying reinventing the wheel or even a good reference for me in the future. 
+
+This blog was built on top of [Jekyll](https://jekyllrb.com/).
+
+Theme crafted with &hearts; by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>). &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
