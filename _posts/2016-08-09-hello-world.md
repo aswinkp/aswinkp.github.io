@@ -3,7 +3,7 @@ layout:     post
 title:      Hello World !!!
 date:       2016-08-09 11:21:29
 summary:    About this awesome blog.
-categories: jekyll pixyll
+categories: first
 ---
 
 Yet another GEEK blog.
