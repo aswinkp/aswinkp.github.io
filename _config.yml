@@ -4,7 +4,8 @@ email:       kp.aswinkumar@gmail.com
 author:      Aswin Kumar
 description: "Tech/Personal blog by Aswin."
 baseurl:     ""
-url:         "http://4sw.in"
+url: https://4sw.in
+enforce_ssl: 4sw.in
 date_format: "%b %-d, %Y"
 
 # Google services
@@ -94,7 +95,7 @@ text:
       sending:  'sending..'
       sent:     'Message sent!'
       error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
+  thanks: 'Thanks for contacting us. I will reply as soon as possible.'
   og_locale: 'en_US'
 
 # Build settings
