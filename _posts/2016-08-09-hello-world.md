@@ -12,4 +12,4 @@ This blog is mostly to keep track of the things I'm doing regularly. Usually I w
 
 This blog was built on top of [Jekyll](https://jekyllrb.com/).
 
-Theme crafted with &hearts; by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>). &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+Theme by <a href="http://johnotander.com">John Otander</a> available on <a href="https://github.com/johnotander/pixyll">Github</a>.
