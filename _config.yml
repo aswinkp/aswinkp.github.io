@@ -9,10 +9,10 @@ enforce_ssl: 4sw.in
 date_format: "%b %-d, %Y"
 
 # Google services
-google_verification:
+google_verification: w_HiPWv7B9xiphmm3EgfFsgQIK0gXIFUqXwihlqNSkY
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-82487345-1
 google_tag_manager:
 # Bing services
 bing_verification:
