@@ -1,17 +1,16 @@
 ---
 layout:     post
-title:      Django with Angular2 Tutorial - part 1
+title:      Django with Angular2 Tutorial
 date:       2016-08-15 11:21:29
 summary:    getting started with Django and Angular2.
 categories: django, angular2, tutorial
 ---
 
-Django is awesome. Angular2 is also awesome. But they both are awesome when there is abrupt seperation between them.
+Django is awesome. Angular2 is also awesome. Many forums suggest that they both are awesome when there is abrupt seperation between them.
 
 However need may arise to combine both django and angular2 to make your project double awesome.
 
-I have come across a situation where I need to use both side-by-side utilizing the features of both.
-To make it more complicated, angular application should be in the root url. It would have been bit easier if angular app is served from sub folder like domain.com/app/. Anyways, I wanted to find the solution (again, under critical deadline). 
+I have come across a situation where I need to use angular2 and django side-by-side utilizing the features of both. To make it more complicated, requirement stated that angular application should be in the root url after login. It would have been bit easier if angular app is served from sub folder like domain.com/app/. Anyways, I wanted to find the solution (again, under critical deadline). 
 
 
 ### Project Setup
@@ -295,6 +294,8 @@ cd path/to/django-ng2-starter/
 python manage.py runserver
 
 ```
+
+Now visit `localhost:8000` in your browser. You need NPM runing in another terminal during development phase to compile typescript into javascript as you are making changes. 
 
 ### Happy Coding :)
 ___
