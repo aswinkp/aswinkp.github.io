@@ -12,6 +12,7 @@ However need may arise to combine both django and angular2 to make your project 
 
 I have come across a situation where I need to use angular2 and django side-by-side utilizing the features of both. To make it more complicated, requirement stated that angular application should be in the root url after login. It would have been bit easier if angular app is served from sub folder like domain.com/app/. Anyways, I wanted to find the solution (again, under critical deadline). 
 
+> Donload the source code [HERE](https://github.com/aswinkp/django-ng2-starter).
 
 ### Project Setup
 
