@@ -14,7 +14,7 @@ Part 2 focuses on rendering django context variables and angular2 string interpo
 
 As far as my experience jinja2 stands as a best templating engine for django. Some benchmarks even say that Jinja2's performance is 20 times of that of django. Although django templating engine is good, I prefer Jinja2 for its performance and features.
 
-Both Angular2 and jinja2 has {{ }} syntax in their templates. Luckily jinja2 offers to change those syntax. Not sure that Django would provide this.
+Both Angular2 and jinja2 has <pre>{{ }}</pre> syntax in their templates. Luckily jinja2 offers to change those syntax. Not sure that Django would provide this.
 
 ### Into Action
 
@@ -50,7 +50,7 @@ TEMPLATES = [
 ]
 ```
 
-Note the `OPTIONS` in the Jinja2 backend. We are changing the default jinja2 delimiter from `{{ }}` to `[{ }]`. This is to ensure that there is no conflict between the default jinja2 delimiter and angular2 interpolation.
+Note the `OPTIONS` in the Jinja2 backend. We are changing the default jinja2 delimiter from <pre>`{{ }}`</pre> to `[{ }]`. This is to ensure that there is no conflict between the default jinja2 delimiter and angular2 interpolation.
 
 ```typescript
 import {Component} from "@angular/core";
