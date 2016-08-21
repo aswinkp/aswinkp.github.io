@@ -2,9 +2,11 @@
 layout:     post
 title:      Django with Angular2 Tutorial
 date:       2016-08-15 11:21:29
-summary:    getting started with Django and Angular2.
+summary:    Getting started with Django and Angular2.
 categories: django, angular2, tutorial
 ---
+
+## Django with Angular2 Tutorial - Getting Started
 
 Django is awesome. Angular2 is also awesome. Many forums suggest that they both are awesome when there is abrupt seperation between them.
 
@@ -12,7 +14,7 @@ However need may arise to combine both django and angular2 to make your project 
 
 I have come across a situation where I need to use angular2 and django side-by-side utilizing the features of both. To make it more complicated, requirement stated that angular application should be in the root url after login. It would have been bit easier if angular app is served from sub folder like domain.com/app/. Anyways, I wanted to find the solution (again, under critical deadline). 
 
-> Donload the source code [HERE](https://github.com/aswinkp/django-ng2-starter).
+> Download the source code [HERE](https://github.com/aswinkp/django-ng2-starter).
 
 ### Project Setup
 
@@ -298,5 +300,11 @@ python manage.py runserver
 
 Now visit `localhost:8000` in your browser. You need NPM runing in another terminal during development phase to compile typescript into javascript as you are making changes. 
 
+***
+
+**UPDATE:** Follow up of this tutorial [Part 2](http://4sw.in/blog/2016/django-angular-2-tutorial-part-2/) of the tutorial is focused on rendeing Django context variables and Jinja2 context variables in the same template file without conflicting between `{{}}`. 
+
 ### Happy Coding :)
+
+
 ___
