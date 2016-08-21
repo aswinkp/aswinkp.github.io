@@ -302,7 +302,7 @@ Now visit `localhost:8000` in your browser. You need NPM runing in another termi
 
 ***
 
-**UPDATE:** Follow up of this tutorial [Part 2](http://4sw.in/blog/2016/django-angular-2-tutorial-part-2/) of the tutorial is focused on rendeing Django context variables and Jinja2 context variables in the same template file without conflicting between `{{}}`. 
+**UPDATE:** Follow up of this tutorial [Django with Angular2 Tutorial - Part 2 - Rendering templates](http://4sw.in/blog/2016/django-angular-2-tutorial-part-2/) is focused on rendeing Django context variables and Jinja2 context variables in the same template file without any conflicts. 
 
 ### Happy Coding :)
 
