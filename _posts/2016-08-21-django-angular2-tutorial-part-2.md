@@ -14,7 +14,7 @@ Part 2 focuses on rendering django context variables and angular2 string interpo
 
 As far as my experience jinja2 stands as a best templating engine for django. Some benchmarks even say that Jinja2's performance is 20 times of that of django. Although django templating engine is good, I prefer Jinja2 for its performance and features.
 
-Both Angular2 and jinja2 has `{% raw %}{{ }}{% endraw %}`</pre> syntax in their templates. Luckily jinja2 offers to change those syntax. Not sure that Django would provide this.
+Both Angular2 and jinja2 has `{% raw %}{{ }}{% endraw %}` syntax in their templates. Luckily jinja2 offers to change those syntax. Not sure that Django would provide this.
 
 ### Into Action
 
