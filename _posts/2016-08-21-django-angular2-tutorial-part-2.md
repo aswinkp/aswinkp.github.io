@@ -18,6 +18,10 @@ Both Angular2 and jinja2 has `{% raw %}{{ }}{% endraw %}` syntax in their templa
 
 ### Into Action
 
+The best practice is to seperate frontend templating from backend and make Angular standalone app. 
+
+So do this only when you have a clear requirement to integrate Django templating with Angular templating engine.
+
 Continuing from the first part of this tutorial series. [https://4sw.in/blog/2016/django-angular2-tutorial/](https://4sw.in/blog/2016/django-angular2-tutorial/) .
 
 > Download the source code [HERE](https://github.com/aswinkp/django-ng2-starter).
