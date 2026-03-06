@@ -58,7 +58,7 @@ Console logging has nuances across all three tools. agent-browser captures runti
 
 ### Reliability is not equal
 
-Claude in Chrome failed on first attempt ("Browser extension is not connected") and only worked 40 minutes later. It depends on a running Chrome instance with an active extension — a fragile prerequisite for automated workflows.
+Claude in Chrome failed on first attempt ("Browser extension is not connected") and only worked in the second try. It depends on a running Chrome instance with an active extension — a fragile prerequisite for automated workflows.
 
 agent-browser and Playwright MCP are self-contained. They launch their own browser instances and have no external dependencies beyond the binary itself.
 
