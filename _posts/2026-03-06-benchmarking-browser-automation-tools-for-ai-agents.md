@@ -27,7 +27,8 @@ Each tool performed an identical sequence against a production Django app: navig
 | **Wall time** | **9.7s** | 29.7s | 40.2s |
 | **Tool calls** | **1** | 8 | 8 |
 | **Screenshot** | 57KB PNG to file | 57KB PNG to file + inline | JPEG inline only |
-| **Network capture** | None | **16 requests** | None |
+| **Console logs** | Runtime only | Page-load only | Runtime only (after enable) |
+| **Network capture** | None (route/mock only) | **16 requests** | None (after enable) |
 | **Snapshot size** | 2KB YAML | ~4KB YAML | ~3KB flat list |
 | **Token cost** | **~50 tokens** | ~3-5K tokens | ~2K tokens |
 
@@ -49,11 +50,11 @@ When your context window is your most constrained resource, this isn't a minor o
 
 ### Network observability is Playwright's edge
 
-Playwright was the only tool that captured network requests — 16 in total, including static assets, API calls, and analytics pings. Both agent-browser and Claude in Chrome returned empty results.
+Playwright MCP was the only tool that passively captured network requests — 16 in total, including static assets, API calls, and analytics pings. agent-browser's `network` commands are designed for route interception and mocking, not passive logging. Claude in Chrome requires enabling tracking before the page loads.
 
-For debugging client-server interactions (failed API calls, CORS issues, missing resources), this capability is irreplaceable. It's the one scenario where the token overhead of Playwright MCP is justified.
+For debugging client-server interactions (failed API calls, CORS issues, missing resources), Playwright's passive network capture is irreplaceable. It's the one scenario where the token overhead is justified.
 
-All three tools failed to capture console logs retroactively. This is a shared architectural limitation — logging must be enabled before page load.
+Console logging has nuances across all three tools. agent-browser captures runtime console output (messages after page load) via its `console` command — useful for debugging interactions. Playwright MCP captures page-load console output. Claude in Chrome requires explicit enablement. None of them give you a complete picture out of the box.
 
 ### Reliability is not equal
 
