@@ -2,90 +2,79 @@
 layout:     post
 title:      Benchmarking Browser Automation Tools for AI Agents
 date:       2026-03-06 17:30:00
-summary:    I tested three browser automation tools — agent-browser, Playwright MCP, and Claude in Chrome — to find which is fastest, cheapest on tokens, and most reliable for AI-driven visual debugging.
+summary:    agent-browser vs Playwright MCP vs Claude in Chrome — which browser automation tool is fastest, most token-efficient, and most reliable for AI-driven development workflows?
 categories: ai tooling
 ---
 
-When building [Squad of Agents](https://squadofagents.com), I use Claude Code as my primary development tool. Part of my workflow involves visual debugging — loading pages in a browser, taking screenshots, reading console logs, and inspecting network requests — all driven by the AI agent.
+AI coding agents need to see what they build. Whether it's verifying a UI change, debugging an HTMX swap, or inspecting network traffic, browser automation is becoming a core part of the agent toolchain — not just an afterthought.
 
-There are three browser automation tools available to Claude Code today:
+I've been building [Squad of Agents](https://squadofagents.com) almost entirely through Claude Code, and visual debugging is a daily workflow. Three browser automation tools are currently available in this ecosystem:
 
-1. **agent-browser** — a headless CLI tool optimized for AI agents
-2. **Playwright MCP** — Playwright wrapped as an MCP server
-3. **Claude in Chrome** — a Chrome extension that lets Claude control your real browser
+1. **agent-browser** — a headless CLI designed specifically for AI agents
+2. **Playwright MCP** — Playwright exposed as an MCP server
+3. **Claude in Chrome** — a Chrome extension giving Claude direct control of your browser
 
-I wanted to know: which is fastest? Which uses the fewest tokens? Which captures the most useful data? So I ran the same task on all three and measured everything.
+The question isn't which one works — they all do. The question is which one minimizes overhead in the two resources that matter most: **time** and **context window tokens**.
 
-## The test
+## Methodology
 
-The task was simple but representative of real visual debugging:
-
-1. Navigate to `squadofagents.com`
-2. Authenticate (set a Django session cookie)
-3. Load the `codevantage-bot` team dashboard
-4. Take a full-page screenshot
-5. Read console logs
-6. Read network requests
-7. Get an accessibility snapshot of the page
+Each tool performed an identical sequence against a production Django app: navigate to an authenticated dashboard, capture a full-page screenshot, read console logs, read network requests, and generate an accessibility snapshot. Same page, same data, same session.
 
 ## Results
 
 | Metric | agent-browser | Playwright MCP | Claude in Chrome |
 |---|---|---|---|
-| **Wall time** | **~9.7s** | ~29.7s | ~40.2s |
+| **Wall time** | **9.7s** | 29.7s | 40.2s |
 | **Tool calls** | **1** | 8 | 8 |
-| **Screenshot** | 57KB PNG (file) | 57KB PNG (file + inline) | JPEG (inline only) |
-| **Console logs** | Empty | Empty | Empty |
-| **Network requests** | Empty | **16 requests captured** | Empty |
-| **Accessibility snapshot** | 2KB clean YAML | ~4KB verbose YAML | ~3KB flat list |
-| **Token cost (estimate)** | **~50 tokens** | ~3-5K tokens | ~2K tokens |
+| **Screenshot** | 57KB PNG to file | 57KB PNG to file + inline | JPEG inline only |
+| **Network capture** | None | **16 requests** | None |
+| **Snapshot size** | 2KB YAML | ~4KB YAML | ~3KB flat list |
+| **Token cost** | **~50 tokens** | ~3-5K tokens | ~2K tokens |
 
-## Analysis
+## What the numbers reveal
 
-### Speed: agent-browser wins by 3-4x
+### The round-trip tax is real
 
-agent-browser completes the entire workflow in a single Bash command — no round-trips between the AI model and the tool server. The CLI launches a headless browser, executes all commands sequentially, and returns. Total wall time: **9.7 seconds**.
+agent-browser runs as a single Bash invocation — one tool call, no round-trips. Playwright and Chrome MCP require 6-8 sequential tool calls, each carrying the latency of model inference plus MCP transport. That serialization penalty alone accounts for a 3-4x speed difference.
 
-Playwright MCP and Claude in Chrome both require multiple tool calls, each of which is a round-trip: Claude generates the tool call, the MCP server executes it, the result comes back, Claude processes it and generates the next call. This serialization adds up fast.
+This is an architectural insight, not an implementation detail. Any MCP-based browser tool will pay this tax. CLI tools that batch operations avoid it entirely.
 
-### Token efficiency: agent-browser wins dramatically
+### Token efficiency compounds over sessions
 
-This is the most important difference for daily use. Every tool call result gets injected into Claude's context window. Playwright MCP returns the **full page accessibility snapshot with every single response** — navigate returns a snapshot, click returns a snapshot, even taking a screenshot returns a snapshot. Each one is 3-5K tokens of YAML.
+This is the more consequential finding. Playwright MCP returns the **full page accessibility snapshot with every response** — navigation, clicks, screenshots, everything. Each snapshot is 3-5K tokens of YAML injected directly into the context window.
 
-agent-browser writes everything to files. The only thing that enters the context is a one-line confirmation like `✓ Screenshot saved to /tmp/screenshot.png`. When I need to inspect the output, I read the file — but often I don't need to, because I just wanted the screenshot saved for comparison.
+agent-browser writes outputs to files. The context window sees a one-line confirmation. Over a 20-interaction debugging session, that's the difference between ~1K tokens (agent-browser) and ~60-100K tokens (Playwright MCP) spent purely on browser output.
 
-Over a debugging session with 10-20 browser interactions, this difference compounds to **tens of thousands of tokens saved**.
+When your context window is your most constrained resource, this isn't a minor optimization — it determines whether your debugging session completes or gets truncated.
 
-### Data capture: Playwright wins on network requests
+### Network observability is Playwright's edge
 
-All three tools failed to capture console logs retroactively — they all require being set up before the page loads. This is a fundamental limitation.
+Playwright was the only tool that captured network requests — 16 in total, including static assets, API calls, and analytics pings. Both agent-browser and Claude in Chrome returned empty results.
 
-However, Playwright MCP was the only tool that successfully captured network requests (16 requests including static assets, API calls, and Cloudflare analytics). Both agent-browser and Claude in Chrome returned empty results.
+For debugging client-server interactions (failed API calls, CORS issues, missing resources), this capability is irreplaceable. It's the one scenario where the token overhead of Playwright MCP is justified.
 
-### Auth: Claude in Chrome wins on convenience
+All three tools failed to capture console logs retroactively. This is a shared architectural limitation — logging must be enabled before page load.
 
-Claude in Chrome uses your real Chrome session — if you're already logged in, the agent can just navigate and everything works. No cookie injection needed.
+### Reliability is not equal
 
-The other two tools run headless browsers with no existing session, so you need to explicitly create and inject a session cookie. For production debugging, this means an extra step to generate a Django session via SSH.
+Claude in Chrome failed on first attempt ("Browser extension is not connected") and only worked 40 minutes later. It depends on a running Chrome instance with an active extension — a fragile prerequisite for automated workflows.
 
-### Reliability
+agent-browser and Playwright MCP are self-contained. They launch their own browser instances and have no external dependencies beyond the binary itself.
 
-- **agent-browser**: Most reliable. Single command, predictable behavior, no extension dependencies.
-- **Playwright MCP**: Reliable but verbose. Works consistently, but the token cost per interaction is high.
-- **Claude in Chrome**: Least reliable. Requires the Chrome extension to be connected. In my first attempt during this session, it returned "Browser extension is not connected" — it only worked on the second try, 40 minutes later.
+## Decision framework
 
-## When to use each
-
-| Scenario | Best tool |
+| Scenario | Tool |
 |---|---|
-| Quick visual check after a code change | agent-browser |
-| Debugging HTMX/API interactions (need network logs) | Playwright MCP |
-| Debugging in your real browser with real auth state | Claude in Chrome |
-| CI/automated testing | agent-browser or Playwright |
+| Visual verification after code changes | agent-browser |
+| Debugging API/network interactions | Playwright MCP |
+| Inspecting state in your actual browser session | Claude in Chrome |
 | Long debugging sessions (token budget matters) | agent-browser |
+| CI/automated visual testing | agent-browser |
 
-## The takeaway
+## Conclusion
 
-**agent-browser should be the default for AI-driven visual debugging.** It's 3-4x faster, uses 50-100x fewer tokens, and is the most reliable. Use Playwright MCP when you specifically need network request data, and Claude in Chrome when you need to interact with your real browser session.
+**agent-browser should be the default.** It's 3-4x faster, ~50-100x more token-efficient, and the most reliable of the three. Switch to Playwright MCP when you need network observability. Use Claude in Chrome when you need your real browser's authentication state.
 
-The token efficiency difference is the real story here. In a world where context windows are finite and every token counts, a tool that writes results to files instead of injecting them into the conversation is a significant advantage. It's the difference between a debugging session that stays focused and one that runs out of context halfway through.
+The deeper lesson here is about tool design for AI agents. The best agent tools aren't the most feature-rich — they're the ones that respect the agent's constraints. A tool that writes to files instead of flooding the context window understands that tokens are the scarcest resource. A tool that batches operations into a single invocation understands that round-trips are the primary latency bottleneck.
+
+As AI-driven development matures, the tools that win will be the ones designed around these constraints from the ground up.
