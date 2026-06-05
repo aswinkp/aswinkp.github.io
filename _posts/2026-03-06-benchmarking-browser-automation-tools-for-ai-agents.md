@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Benchmarking Browser Automation Tools for AI Agents
-date:       2026-03-06 17:30:00
+date:       2026-03-06 17:00:00 +0530
 summary:    agent-browser vs Playwright MCP vs Claude in Chrome — which browser automation tool is fastest, most token-efficient, and most reliable for AI-driven development workflows?
 categories: ai tooling
 ---
