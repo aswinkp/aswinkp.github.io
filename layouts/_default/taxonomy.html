@@ -1,0 +1,1 @@
+{{ define "main" }}<section class="thoughts"><h2 class="section-title">{{ .Title }}</h2>{{ range .Pages }}<article class="entry"><span class="date">{{ .Date.Format "Jan 2, 2006" }}</span><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></article>{{ end }}</section>{{ end }}

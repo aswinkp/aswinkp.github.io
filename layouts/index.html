@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="hero">
+  <div>
+    <h1>I build useful internet businesses.</h1>
+    <p>I’m Aswin Kumar, an indie founder running Codevantage. I build products across customer support, developer tooling, Notion utilities, and AI-agent workflows.</p>
+    <p>This is my personal site: a compact place for what I’m building, what I’m learning, and the thoughts I want to keep public.</p>
+  </div>
+  <figure class="portrait">
+    <img src="{{ "assets/generated-ai-portraits/v203b-mouth-fix/v203b-mouthfix-03-neutral-warm.png" | relURL }}" alt="AI-generated editorial portrait of Aswin Kumar">
+  </figure>
+</section>
+<section class="home-index">
+  <div class="home-row"><span class="mono">01</span><div><h2>Products</h2><p>BunnyDesk, Disbug, mindmap.so, Squad of Agents, and past work including Bullet.so.</p></div></div>
+  <div class="home-row"><span class="mono">02</span><div><h2>Thoughts</h2><p>Notes on building, AI tools, product decisions, founder leverage, and practical software work.</p></div></div>
+  <div class="home-row"><span class="mono">03</span><div><h2>Current focus</h2><p>Turning a portfolio of useful products into a focused founder-led business.</p></div></div>
+</section>
+<section class="thoughts">
+  <h2 class="section-title">Thoughts</h2>
+  {{ range first 8 (where site.RegularPages "Section" "thoughts") }}
+    <article class="entry">
+      <span class="date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></span>
+      <div><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

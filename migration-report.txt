@@ -1,0 +1,8 @@
+Migrated posts:
+/Users/aswin/projects/personal-branding/aswinkp.github.io/hugo-site/content/thoughts/2016-08-09-hello-world.md
+/Users/aswin/projects/personal-branding/aswinkp.github.io/hugo-site/content/thoughts/2016-08-15-django-angular2-tutorial.md
+/Users/aswin/projects/personal-branding/aswinkp.github.io/hugo-site/content/thoughts/2016-08-21-django-angular2-tutorial-part-2.md
+/Users/aswin/projects/personal-branding/aswinkp.github.io/hugo-site/content/thoughts/2016-09-11-python-month-workshop-in-chennai.md
+/Users/aswin/projects/personal-branding/aswinkp.github.io/hugo-site/content/thoughts/2026-03-06-benchmarking-browser-automation-tools-for-ai-agents.md
+
+Secrets/third-party identifiers from _config.yml intentionally not copied: google_verification, google_analytics, disqus_shortname.

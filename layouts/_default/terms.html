@@ -1,0 +1,1 @@
+{{ define "main" }}<section class="thoughts"><h2 class="section-title">{{ .Title }}</h2>{{ range .Data.Terms.Alphabetical }}<article class="entry"><span class="date">{{ .Count }}</span><a class="title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></article>{{ end }}</section>{{ end }}

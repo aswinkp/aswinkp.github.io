@@ -1,0 +1,29 @@
+baseURL = "https://4sw.in/"
+languageCode = "en-us"
+title = "Aswin Kumar"
+timeZone = "Asia/Kolkata"
+enableRobotsTXT = true
+summaryLength = 28
+
+[pagination]
+pagerSize = 20
+
+[permalinks]
+thoughts = "/blog/:year/:slug/"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+author = "Aswin Kumar"
+description = "Tech and personal notes by Aswin Kumar."
+tagline = "Codevantage · products · thoughts"
+github = "https://github.com/aswinkp"
+twitter = "https://twitter.com/GeekAswin"
+# Analytics/search-verification/comment provider identifiers from the Jekyll config were intentionally not copied.
