@@ -1,10 +1,11 @@
 ---
 title: "Products"
 url: "/products/"
+description: "Products and internet businesses by Aswin Kumar K P, including BunnyDesk, Disbug, mindmap.so, Squad of Agents, and past work on Bullet.so."
 ---
 
-- BunnyDesk — customer support software.
-- Disbug — visual feedback and bug reporting.
-- mindmap.so — Notion-to-mindmap utility.
-- Squad of Agents — AI-agent workflows for builders.
-- Bullet.so — past work in the Notion website ecosystem.
+- [BunnyDesk](https://bunnydesk.ai/) — customer support software.
+- [Disbug](https://disbug.io/) — visual feedback and bug reporting for product teams.
+- [mindmap.so](https://mindmap.so/) — Notion-to-mindmap utility.
+- [Squad of Agents](https://squadofagents.com/) — AI-agent workflows for builders.
+- [Bullet.so](https://bullet.so/) — past work in the Notion website ecosystem.

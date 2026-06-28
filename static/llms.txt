@@ -1,0 +1,29 @@
+# Aswin Kumar K P
+
+> Indie founder and software engineer building internet businesses across customer support, developer tooling, Notion utilities, and AI-agent workflows.
+
+## Canonical site
+
+- Website: https://4sw.in/
+- About: https://4sw.in/about/
+- Products: https://4sw.in/products/
+- Thoughts: https://4sw.in/thoughts/
+- Contact: https://4sw.in/contact/
+
+## Public profiles
+
+- GitHub: https://github.com/aswinkp
+- X / Twitter: https://x.com/GeekAswin
+
+## Products and projects
+
+- Codevantage: https://codevantage.io/
+- BunnyDesk: https://bunnydesk.ai/
+- Disbug: https://disbug.io/
+- mindmap.so: https://mindmap.so/
+- Squad of Agents: https://squadofagents.com/
+- Bullet.so: https://bullet.so/
+
+## Topics
+
+SaaS, customer support software, developer tools, bug reporting, Notion utilities, AI agents, founder workflows, product engineering, automation.

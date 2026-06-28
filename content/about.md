@@ -1,19 +1,26 @@
 ---
 title: "About"
 url: "/about/"
+description: "About Aswin Kumar K P, indie founder and software engineer building Codevantage, BunnyDesk, Disbug, mindmap.so, and AI-agent workflows."
 ---
 
-Hello, I'm Aswin Kumar.
+I'm Aswin Kumar K P, an indie founder and software engineer running Codevantage.
 
-Polyglot Programmer. Freelancer. Open Source enthusiast. Currently, Full Stack Developer. Live in Chennai, India.
+I build useful internet businesses across customer support, developer tooling, Notion utilities, and AI-agent workflows. My current portfolio includes BunnyDesk, Disbug, mindmap.so, and Squad of Agents. I previously built Bullet.so in the Notion website ecosystem.
 
-Started to sharpen my coding skills in my sophomore year, Began my professional career as a Software Developer in Citrisys Solutions as Software Developer in [ATG Framework](http://learnoracleatg.blogspot.in/2014/04/chapter-1-oracle-atg-story.html). Now, I work at RedBlackTree as a FullStack Developer. Being an individual freelancer or hobbyist programmer developed some serious projects, ranging from highly scalable websites with great SEO and heavy micro-data scoring over 95% in Google Page insights tool to Hybrid Mobile Application, I consider myself as a <del>reasonably</del> experienced Web Developer.
+This site is the canonical home for my public identity, products, writing, and contact information.
 
-I code in Python (Django to be specific), Java, Rails, Meteor, Angular2, Cordova. However not limited to the above. I believe that technology/language is not a barrier for a good programmer. I love automating things. I follow 
+## What I work on
 
-> If you do it once, great. If you do it twice, frown. If you do it three times, automate it.
+- Customer support software for lean teams.
+- Developer feedback and bug-reporting workflows.
+- Notion utilities and publishing tools.
+- AI-agent systems for founders and builders.
+- Practical software engineering, automation, and product leverage.
 
+## Profiles
 
-View my Developer CV [HERE](https://stackoverflow.com/cv/aswinkumar).
+- GitHub: [aswinkp](https://github.com/aswinkp)
+- X / Twitter: [@GeekAswin](https://x.com/GeekAswin)
 
-Hire me [HERE](/contact/)
+For business or collaboration, use the [contact page](/contact/).

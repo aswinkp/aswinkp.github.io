@@ -1,0 +1,149 @@
+{{- $personID := printf "%s#aswin-kumar" site.BaseURL -}}
+{{- $websiteID := printf "%s#website" site.BaseURL -}}
+{{- $pageID := printf "%s#webpage" .Permalink -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ $personID }}",
+      "name": "Aswin Kumar K P",
+      "alternateName": ["Aswin Kumar", "GeekAswin", "aswinkp"],
+      "url": "{{ site.BaseURL }}",
+      "image": "{{ "images/me.jpeg" | absURL }}",
+      "description": "Indian entrepreneur, software engineer, and indie founder building internet businesses across customer support, developer tooling, Notion utilities, and AI-agent workflows.",
+      "jobTitle": "Founder",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Chicago, Illinois, United States"
+      },
+      "nationality": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "knowsAbout": [
+        "SaaS",
+        "AI agents",
+        "Developer tools",
+        "Customer support software",
+        "Notion websites",
+        "Product engineering",
+        "Founder-led software businesses"
+      ],
+      "sameAs": [
+        "https://github.com/aswinkp",
+        "https://x.com/GeekAswin",
+        "https://twitter.com/GeekAswin"
+      ],
+      "affiliation": [
+        { "@id": "https://codevantage.io/#organization" },
+        { "@id": "https://bunnydesk.ai/#organization" },
+        { "@id": "https://disbug.io/#organization" },
+        { "@id": "https://mindmap.so/#organization" }
+      ],
+      "owns": [
+        { "@id": "https://bunnydesk.ai/#software" },
+        { "@id": "https://disbug.io/#software" },
+        { "@id": "https://mindmap.so/#software" },
+        { "@id": "https://squadofagents.com/#software" }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://codevantage.io/#organization",
+      "name": "Codevantage",
+      "url": "https://codevantage.io/",
+      "founder": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://bunnydesk.ai/#organization",
+      "name": "BunnyDesk",
+      "url": "https://bunnydesk.ai/",
+      "founder": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://disbug.io/#organization",
+      "name": "Disbug",
+      "url": "https://disbug.io/",
+      "founder": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mindmap.so/#organization",
+      "name": "mindmap.so",
+      "url": "https://mindmap.so/",
+      "founder": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://bunnydesk.ai/#software",
+      "name": "BunnyDesk",
+      "url": "https://bunnydesk.ai/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "creator": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://disbug.io/#software",
+      "name": "Disbug",
+      "url": "https://disbug.io/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "creator": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mindmap.so/#software",
+      "name": "mindmap.so",
+      "url": "https://mindmap.so/",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "creator": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://squadofagents.com/#software",
+      "name": "Squad of Agents",
+      "url": "https://squadofagents.com/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "creator": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ $websiteID }}",
+      "url": "{{ site.BaseURL }}",
+      "name": "Aswin Kumar K P",
+      "alternateName": "Aswin Kumar",
+      "description": "{{ site.Params.description }}",
+      "publisher": { "@id": "{{ $personID }}" },
+      "author": { "@id": "{{ $personID }}" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ $pageID }}",
+      "url": "{{ .Permalink }}",
+      "name": "{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}",
+      "description": "{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}",
+      "isPartOf": { "@id": "{{ $websiteID }}" },
+      "about": { "@id": "{{ $personID }}" },
+      "author": { "@id": "{{ $personID }}" }
+    }{{ if and (eq .Section "thoughts") .IsPage }},
+    {
+      "@type": "Article",
+      "@id": "{{ .Permalink }}#article",
+      "headline": "{{ .Title }}",
+      "url": "{{ .Permalink }}",
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+      "author": { "@id": "{{ $personID }}" },
+      "publisher": { "@id": "{{ $personID }}" },
+      "mainEntityOfPage": { "@id": "{{ $pageID }}" }
+    }{{ end }}
+  ]
+}
+</script>

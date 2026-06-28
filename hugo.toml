@@ -1,6 +1,6 @@
 baseURL = "https://4sw.in/"
-languageCode = "en-us"
-title = "Aswin Kumar"
+locale = "en-US"
+title = "Aswin Kumar K P"
 timeZone = "Asia/Kolkata"
 enableRobotsTXT = true
 summaryLength = 28
@@ -21,9 +21,9 @@ tag = "tags"
       unsafe = true
 
 [params]
-author = "Aswin Kumar"
-description = "Tech and personal notes by Aswin Kumar."
+author = "Aswin Kumar K P"
+description = "Personal site of Aswin Kumar K P, an indie founder and software engineer building Codevantage, BunnyDesk, Disbug, mindmap.so, and AI-agent workflows."
 tagline = "Codevantage · products · thoughts"
 github = "https://github.com/aswinkp"
-twitter = "https://twitter.com/GeekAswin"
+twitter = "https://x.com/GeekAswin"
 # Analytics/search-verification/comment provider identifiers from the Jekyll config were intentionally not copied.
